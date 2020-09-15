@@ -1,19 +1,19 @@
 <div class="limiter">
-  
+
   <div class="container-table100">
-    
+
     <div class="wrap-table100">
       <div class="table100 mb-4">
-        <form>
+        <form (submit)="agregarRestaurante(nombre.value, ciudad.value);$event.preventDefault()">
           <div class="row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Nombre del restaurante">
+              <input #nombre type="text" class="form-control" placeholder="Nombre del restaurante">
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Ciudad">
+              <input #ciudad type="text" class="form-control" placeholder="Ciudad">
             </div>
             <div class="col">
-             <button class="btn btn-info" type="submit">agregar</button>
+              <button class="btn btn-info" type="submit">agregar</button>
             </div>
           </div>
         </form>
@@ -27,16 +27,17 @@
             </tr>
           </thead>
           <tbody>
-              <tr>
-                <td class="column1">El Soperito</td>
-                <td class="column2">La Victoria</td>
-              </tr>
+            <!-- <tr>
+              <td class="column1">El Soperito</td>
+              <td class="column2">La Victoria</td>
+            </tr> -->
+            <tr *ngFor="let r of listaRestaurantes">
+              <td class="column1">{{ r.Nombre }}</td>
+              <td class="column2">{{ r.Ciudad }}</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
-
-
-
